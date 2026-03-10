@@ -9,9 +9,11 @@ grid.innerHTML=""
 
 list.forEach(p=>{
 
-grid.innerHTML+=`
+const card=document.createElement("div")
 
-<div class="bg-white rounded shadow overflow-hidden">
+card.className="bg-white rounded shadow overflow-hidden cursor-pointer"
+
+card.innerHTML=`
 
 <img src="${p.images[0]}"
 class="h-48 w-full object-cover">
@@ -28,11 +30,54 @@ class="h-48 w-full object-cover">
 
 </div>
 
-</div>
-
 `
 
+card.onclick=()=>openProperty(p.id)
+
+grid.appendChild(card)
+
 })
+
+}
+
+function openProperty(id){
+
+const p=properties.find(x=>x.id===id)
+
+sliderImages=p.images
+
+currentIndex=0
+
+document.getElementById("modalTitle").innerText=p.title
+document.getElementById("modalLocation").innerText=p.location
+document.getElementById("modalPrice").innerText="₹"+p.price
+document.getElementById("modalInfo").innerText=p.type
+
+document.getElementById("modalImage").src=sliderImages[0]
+
+document.getElementById("propertyModal").style.display="flex"
+
+}
+
+function nextImage(){
+
+currentIndex=(currentIndex+1)%sliderImages.length
+
+document.getElementById("modalImage").src=sliderImages[currentIndex]
+
+}
+
+function prevImage(){
+
+currentIndex=(currentIndex-1+sliderImages.length)%sliderImages.length
+
+document.getElementById("modalImage").src=sliderImages[currentIndex]
+
+}
+
+function closeModal(){
+
+document.getElementById("propertyModal").style.display="none"
 
 }
 
