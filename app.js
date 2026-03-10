@@ -9,11 +9,10 @@ grid.innerHTML=""
 
 list.forEach(p=>{
 
-const card=document.createElement("div")
+grid.innerHTML+=`
 
-card.className="bg-white rounded shadow overflow-hidden cursor-pointer"
-
-card.innerHTML=`
+<div class="bg-white rounded shadow overflow-hidden cursor-pointer"
+onclick="openProperty(${p.id})">
 
 <img src="${p.images[0]}"
 class="h-48 w-full object-cover">
@@ -30,11 +29,9 @@ class="h-48 w-full object-cover">
 
 </div>
 
+</div>
+
 `
-
-card.onclick=()=>openProperty(p.id)
-
-grid.appendChild(card)
 
 })
 
@@ -53,6 +50,9 @@ document.getElementById("modalPrice").innerText="₹"+p.price
 document.getElementById("modalInfo").innerText=p.type
 
 document.getElementById("modalImage").src=sliderImages[0]
+
+document.getElementById("whatsappBtn").href=
+"https://wa.me/?text=Interested in "+p.title
 
 document.getElementById("propertyModal").style.display="flex"
 
@@ -75,28 +75,6 @@ document.getElementById("modalImage").src=sliderImages[currentIndex]
 function closeModal(){
 
 document.getElementById("propertyModal").style.display="none"
-
-}
-
-function filterProperties(){
-
-let city=document.getElementById("city").value
-let type=document.getElementById("ptype").value
-let purpose=document.getElementById("purpose").value
-let price=document.getElementById("price").value
-
-let filtered=properties.filter(p=>{
-
-return(
-(!city || p.location===city) &&
-(!type || p.type===type) &&
-(!purpose || p.purpose===purpose) &&
-(!price || p.price<=price)
-)
-
-})
-
-displayProperties(filtered)
 
 }
 
