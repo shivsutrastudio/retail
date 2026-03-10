@@ -18,14 +18,13 @@ content="ShivSutra helps you buy, rent and sell homes across India.">
 
 <body class="bg-gray-100">
 
+<!-- NAVBAR -->
+
 <nav class="bg-white shadow p-4 flex justify-between items-center">
 
 <a href="index.html" class="flex items-center gap-3">
-
 <img src="logo.png" class="h-10">
-
 <h1 class="text-xl font-bold">ShivSutra Rentals</h1>
-
 </a>
 
 <div class="flex gap-6">
@@ -41,6 +40,9 @@ Dashboard
 </div>
 
 </nav>
+
+
+<!-- HERO -->
 
 <section
 class="bg-cover bg-center h-[520px] flex flex-col justify-center items-center text-white text-center"
@@ -58,49 +60,41 @@ India’s trusted platform for buying, renting and investing in real estate.
 “Every home begins with a story — ShivSutra helps you find yours.”
 </p>
 
-<div class="bg-white rounded shadow p-4 flex gap-2 w-[90%] max-w-5xl">
+</section>
 
-<select id="city" class="p-3 border rounded flex-1 text-black">
-<option value="">City</option>
-<option>Delhi</option>
-<option>Mumbai</option>
-<option>Bangalore</option>
-<option>Pune</option>
-<option>Chandigarh</option>
-<option>Jaipur</option>
-<option>Ahmedabad</option>
-<option>Shimla</option>
-</select>
 
-<select id="ptype" class="p-3 border rounded text-black">
-<option value="">Property Type</option>
-<option>1 RK</option>
-<option>1 BHK</option>
-<option>2 BHK</option>
-<option>3 BHK</option>
-<option>4 BHK</option>
-</select>
+<!-- STATS -->
 
-<select id="purpose" class="p-3 border rounded text-black">
-<option value="">Listing</option>
-<option>Rent</option>
-<option>Buy</option>
-<option>Sale</option>
-</select>
+<section class="bg-white p-10 text-center">
 
-<input id="price"
-placeholder="Max Price"
-class="p-3 border rounded w-40 text-black">
+<div class="grid md:grid-cols-4 gap-6">
 
-<button
-onclick="filterProperties()"
-class="bg-yellow-500 px-6 rounded text-black">
-Search
-</button>
+<div>
+<h3 class="text-3xl font-bold">10,000+</h3>
+<p>Properties</p>
+</div>
+
+<div>
+<h3 class="text-3xl font-bold">150+</h3>
+<p>Agents</p>
+</div>
+
+<div>
+<h3 class="text-3xl font-bold">25</h3>
+<p>Cities</p>
+</div>
+
+<div>
+<h3 class="text-3xl font-bold">5000+</h3>
+<p>Happy Buyers</p>
+</div>
 
 </div>
 
 </section>
+
+
+<!-- PROPERTIES -->
 
 <section class="p-10">
 
@@ -113,6 +107,9 @@ class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
 </div>
 
 </section>
+
+
+<!-- ABOUT -->
 
 <section class="bg-white p-10 text-center">
 
@@ -131,6 +128,33 @@ Contact: shivsutrastudio@gmail.com
 
 </section>
 
+
+<!-- DISCLOSURE -->
+
+<section class="bg-gray-100 p-10 text-center">
+
+<h2 class="text-2xl font-bold mb-4">
+Affiliated Business Arrangement Disclosure
+</h2>
+
+<p class="max-w-4xl mx-auto text-sm">
+
+ShivSutra, Inc. holds real estate brokerage licenses in multiple states.
+
+All mortgage lending products provided by ShivSutra Home Loans.
+
+Licensed Mortgage Banker  
+Dhalli – Shimla | 171012  
+
+Equal Housing Lender
+
+</p>
+
+</section>
+
+
+<!-- FOOTER -->
+
 <footer class="bg-[#0b1a35] text-white text-center p-8">
 
 <img src="logo.png" class="h-10 mx-auto mb-3">
@@ -141,11 +165,8 @@ Contact: shivsutrastudio@gmail.com
 Privacy Notice | Terms of Use | Help Center
 </p>
 
-<p class="text-sm mt-2">
-Contact: shivsutrastudio@gmail.com
-</p>
-
 </footer>
+
 
 <!-- PROPERTY MODAL -->
 
@@ -203,13 +224,16 @@ Close
 
 </div>
 
+
 <script src="properties.js"></script>
 <script src="app.js"></script>
 
 <script>
 
 document.addEventListener("DOMContentLoaded",function(){
+
 displayProperties(properties)
+
 })
 
 </script>
