@@ -9,14 +9,12 @@ grid.innerHTML=""
 
 list.forEach(p=>{
 
-const card=document.createElement("div")
+grid.innerHTML+=`
 
-card.className="bg-white rounded shadow overflow-hidden"
-
-card.innerHTML=`
+<div class="bg-white rounded shadow overflow-hidden">
 
 <img src="${p.images[0]}"
-class="h-48 w-full object-cover cursor-pointer">
+class="h-48 w-full object-cover">
 
 <div class="p-3">
 
@@ -26,18 +24,13 @@ class="h-48 w-full object-cover cursor-pointer">
 
 <p class="font-semibold">₹${p.price}</p>
 
-<button
-onclick="openProperty(${p.id})"
-class="bg-indigo-600 text-white px-3 py-1 mt-2 rounded">
-
-View
-
-</button>
+<p>${p.type}</p>
 
 </div>
-`
 
-grid.appendChild(card)
+</div>
+
+`
 
 })
 
@@ -45,11 +38,19 @@ grid.appendChild(card)
 
 function filterProperties(){
 
-let city=document.getElementById("city").value.toLowerCase()
+let city=document.getElementById("city").value
+let type=document.getElementById("ptype").value
+let purpose=document.getElementById("purpose").value
+let price=document.getElementById("price").value
 
 let filtered=properties.filter(p=>{
 
-return p.location.toLowerCase().includes(city)
+return(
+(!city || p.location===city) &&
+(!type || p.type===type) &&
+(!purpose || p.purpose===purpose) &&
+(!price || p.price<=price)
+)
 
 })
 
@@ -57,53 +58,6 @@ displayProperties(filtered)
 
 }
 
-function openProperty(id){
-
-const p=properties.find(x=>x.id===id)
-
-sliderImages=p.images
-currentIndex=0
-
-document.getElementById("modalTitle").innerText=p.title
-document.getElementById("modalLocation").innerText=p.location
-document.getElementById("modalPrice").innerText="₹"+p.price
-
-document.getElementById("modalImage").src=sliderImages[0]
-
-document.getElementById("propertyModal").style.display="flex"
-
-}
-
-function nextImage(){
-
-currentIndex=(currentIndex+1)%sliderImages.length
-
-document.getElementById("modalImage").src=sliderImages[currentIndex]
-
-}
-
-function prevImage(){
-
-currentIndex=(currentIndex-1+sliderImages.length)%sliderImages.length
-
-document.getElementById("modalImage").src=sliderImages[currentIndex]
-
-}
-
-function closeModal(){
-
-document.getElementById("propertyModal").style.display="none"
-
-}
-
 function openDashboard(){
-
 window.location.href="dashboard.html"
-
-}
-
-function openAdmin(){
-
-window.location.href="admin.html"
-
 }

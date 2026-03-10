@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -8,14 +7,12 @@
 
 <title>ShivSutra Rentals | Buy Rent Sell Property</title>
 
+<meta name="description"
+content="ShivSutra helps you buy, rent and sell homes across India.">
+
 <script src="https://cdn.tailwindcss.com"></script>
 
 <link rel="stylesheet" href="style.css">
-
-<link rel="stylesheet"
-href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 </head>
 
@@ -29,9 +26,7 @@ href="https://unpkg.com/leaflet/dist/leaflet.css"/>
 
 <img src="logo.png" class="h-10">
 
-<h1 class="text-xl font-bold">
-ShivSutra Rentals
-</h1>
+<h1 class="text-xl font-bold">ShivSutra Rentals</h1>
 
 </a>
 
@@ -43,10 +38,6 @@ Sign In
 
 <button onclick="openDashboard()">
 Dashboard
-</button>
-
-<button onclick="openAdmin()">
-Admin
 </button>
 
 </div>
@@ -63,124 +54,146 @@ style="background-image:url('https://images.unsplash.com/photo-1560518883-ce0905
 Buy • Rent • Sell • Invest
 </h1>
 
-<p class="mb-6 italic">
-Every home has a story — let ShivSutra help you find yours.
+<p class="mb-2">
+India’s trusted platform for buying, renting and investing in real estate.
+</p>
+
+<p class="italic mb-6">
+“Every home begins with a story — ShivSutra helps you find yours.”
 </p>
 
 <div class="bg-white rounded shadow p-4 flex gap-2 w-[90%] max-w-5xl">
 
-<input
-id="city"
-placeholder="City (Delhi, Mumbai, Bangalore)"
-class="p-3 border rounded flex-1 text-black">
+<select id="city" class="p-3 border rounded flex-1 text-black">
+<option value="">City</option>
+<option>Delhi</option>
+<option>Mumbai</option>
+<option>Bangalore</option>
+<option>Pune</option>
+<option>Chandigarh</option>
+<option>Jaipur</option>
+<option>Ahmedabad</option>
+<option>Shimla</option>
+</select>
 
 <select id="ptype" class="p-3 border rounded text-black">
-
 <option value="">Property Type</option>
 <option>1 RK</option>
 <option>1 BHK</option>
 <option>2 BHK</option>
 <option>3 BHK</option>
 <option>4 BHK</option>
-
 </select>
 
 <select id="purpose" class="p-3 border rounded text-black">
-
-<option value="">Listing Type</option>
+<option value="">Listing</option>
 <option>Rent</option>
 <option>Buy</option>
 <option>Sale</option>
-
 </select>
 
-<input
-id="price"
+<input id="price"
 placeholder="Max Price"
 class="p-3 border rounded w-40 text-black">
 
 <button
 onclick="filterProperties()"
 class="bg-yellow-500 px-6 rounded text-black">
-
 Search
-
 </button>
 
 </div>
 
 </section>
 
-<!-- FEATURED PROPERTIES -->
+<!-- STATS -->
+
+<section class="bg-white p-10 text-center">
+
+<div class="grid md:grid-cols-4 gap-6">
+
+<div>
+<h3 class="text-3xl font-bold">10,000+</h3>
+<p>Properties</p>
+</div>
+
+<div>
+<h3 class="text-3xl font-bold">150+</h3>
+<p>Agents</p>
+</div>
+
+<div>
+<h3 class="text-3xl font-bold">25</h3>
+<p>Cities</p>
+</div>
+
+<div>
+<h3 class="text-3xl font-bold">5000+</h3>
+<p>Happy Buyers</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- PROPERTIES -->
 
 <section class="p-10">
 
 <h2 class="text-3xl font-bold text-center mb-6">
-
 Featured Properties
-
 </h2>
 
-<div
-id="propertyGrid"
+<div id="propertyGrid"
 class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-
 </div>
 
 </section>
 
-<!-- MAP -->
+<!-- ABOUT -->
 
-<section class="p-10 bg-white">
+<section class="bg-white p-10 text-center">
 
-<h2 class="text-3xl font-bold text-center mb-6">
-Property Locations
+<h2 class="text-3xl font-bold mb-4">
+About ShivSutra
 </h2>
 
-<div id="map" style="height:500px;border-radius:10px"></div>
+<p class="max-w-4xl mx-auto">
+
+ShivSutra is runned by the Dhapta Family and is committed to ensuring
+digital accessibility for individuals with disabilities.
+
+We are continuously working to improve the accessibility of our web
+experience for everyone.
+
+Contact: shivsutrastudio@gmail.com
+
+</p>
 
 </section>
 
-<!-- PROPERTY MODAL -->
+<!-- LEGAL -->
 
-<div id="propertyModal" class="modal">
+<section class="bg-gray-100 p-10 text-center">
 
-<div class="modal-content">
+<h2 class="text-2xl font-bold mb-4">
+Affiliated Business Arrangement Disclosure
+</h2>
 
-<h2 id="modalTitle"></h2>
+<p class="max-w-4xl mx-auto text-sm">
 
-<img id="modalImage"
-class="w-full h-60 object-cover">
+ShivSutra, Inc. holds real estate brokerage licenses in multiple states.
 
-<div class="flex justify-between mt-2">
+All mortgage lending products provided by ShivSutra Home Loans.
 
-<button onclick="prevImage()">◀</button>
-<button onclick="nextImage()">▶</button>
+Licensed Mortgage Banker  
+Dhalli – Shimla | 171012  
 
-</div>
+Equal Housing Lender
 
-<p id="modalLocation"></p>
-<p id="modalPrice"></p>
-<p id="modalInfo"></p>
+</p>
 
-<a id="whatsappBtn"
-target="_blank"
-class="bg-green-500 text-white px-4 py-2 rounded">
-
-WhatsApp Enquiry
-
-</a>
-
-<button onclick="closeModal()"
-class="bg-gray-700 text-white px-4 py-2 mt-3 rounded">
-
-Close
-
-</button>
-
-</div>
-
-</div>
+</section>
 
 <!-- FOOTER -->
 
@@ -191,35 +204,18 @@ Close
 <p>© 2026 ShivSutra Rentals</p>
 
 <p class="text-sm mt-2">
-
-Contact: shivsutrastudio@gmail.com
-
+Privacy Notice | Terms of Use | Help Center
 </p>
 
 </footer>
 
-<!-- JS FILES -->
-
 <script src="properties.js"></script>
 <script src="app.js"></script>
-<script src="ai.js"></script>
-<script src="maps.js"></script>
-<script src="admin.js"></script>
-
-<script type="module" src="firebase.js"></script>
 
 <script>
 
 document.addEventListener("DOMContentLoaded",function(){
-
-if(typeof displayProperties==="function"){
 displayProperties(properties)
-}
-
-if(typeof initMap==="function"){
-setTimeout(initMap,200)
-}
-
 })
 
 </script>
