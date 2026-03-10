@@ -6,10 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ShivSutra | Buy Rent Sell Property in India</title>
-
-<meta name="description"
-content="ShivSutra helps you buy, rent and sell homes across India. Discover apartments, villas, plots and commercial spaces.">
+<title>ShivSutra Rentals | Buy Rent Sell Property</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 
@@ -33,16 +30,24 @@ href="https://unpkg.com/leaflet/dist/leaflet.css"/>
 <img src="logo.png" class="h-10">
 
 <h1 class="text-xl font-bold">
-ShivSutra
+ShivSutra Rentals
 </h1>
 
 </a>
 
 <div class="flex gap-6">
 
-<button onclick="window.location.href='auth.html'">Sign In</button>
-<button onclick="openDashboard()">Dashboard</button>
-<button onclick="openAdmin()">Admin</button>
+<button onclick="window.location.href='auth.html'">
+Sign In
+</button>
+
+<button onclick="openDashboard()">
+Dashboard
+</button>
+
+<button onclick="openAdmin()">
+Admin
+</button>
 
 </div>
 
@@ -64,23 +69,12 @@ Every home has a story — let ShivSutra help you find yours.
 
 <div class="bg-white rounded shadow p-4 flex gap-2 w-[90%] max-w-5xl">
 
-<select id="city" class="p-3 border rounded flex-1">
+<input
+id="city"
+placeholder="City (Delhi, Mumbai, Bangalore)"
+class="p-3 border rounded flex-1 text-black">
 
-<option value="">City</option>
-<option>Delhi</option>
-<option>Mumbai</option>
-<option>Bangalore</option>
-<option>Pune</option>
-<option>Noida</option>
-<option>Gurgaon</option>
-<option>Chandigarh</option>
-<option>Jaipur</option>
-<option>Ahmedabad</option>
-<option>Shimla</option>
-
-</select>
-
-<select id="ptype" class="p-3 border rounded">
+<select id="ptype" class="p-3 border rounded text-black">
 
 <option value="">Property Type</option>
 <option>1 RK</option>
@@ -91,9 +85,9 @@ Every home has a story — let ShivSutra help you find yours.
 
 </select>
 
-<select id="purpose" class="p-3 border rounded">
+<select id="purpose" class="p-3 border rounded text-black">
 
-<option value="">Listing</option>
+<option value="">Listing Type</option>
 <option>Rent</option>
 <option>Buy</option>
 <option>Sale</option>
@@ -103,7 +97,7 @@ Every home has a story — let ShivSutra help you find yours.
 <input
 id="price"
 placeholder="Max Price"
-class="p-3 border rounded w-40">
+class="p-3 border rounded w-40 text-black">
 
 <button
 onclick="filterProperties()"
@@ -122,12 +116,15 @@ Search
 <section class="p-10">
 
 <h2 class="text-3xl font-bold text-center mb-6">
+
 Featured Properties
+
 </h2>
 
 <div
 id="propertyGrid"
 class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
 </div>
 
 </section>
@@ -166,8 +163,6 @@ class="w-full h-60 object-cover">
 <p id="modalPrice"></p>
 <p id="modalInfo"></p>
 
-<div class="flex gap-3 mt-3">
-
 <a id="whatsappBtn"
 target="_blank"
 class="bg-green-500 text-white px-4 py-2 rounded">
@@ -175,22 +170,6 @@ class="bg-green-500 text-white px-4 py-2 rounded">
 WhatsApp Enquiry
 
 </a>
-
-<a href="mailto:shivsutrastudio@gmail.com"
-class="bg-blue-600 text-white px-4 py-2 rounded">
-
-Email Enquiry
-
-</a>
-
-</div>
-
-<button onclick="saveProperty(currentProperty)"
-class="bg-yellow-500 px-4 py-2 rounded mt-3">
-
-Save Property
-
-</button>
 
 <button onclick="closeModal()"
 class="bg-gray-700 text-white px-4 py-2 mt-3 rounded">
@@ -209,15 +188,17 @@ Close
 
 <img src="logo.png" class="h-10 mx-auto mb-3">
 
-<p>© 2026 ShivSutra Studio</p>
+<p>© 2026 ShivSutra Rentals</p>
 
 <p class="text-sm mt-2">
+
 Contact: shivsutrastudio@gmail.com
+
 </p>
 
 </footer>
 
-<!-- JS -->
+<!-- JS FILES -->
 
 <script src="properties.js"></script>
 <script src="app.js"></script>
@@ -231,7 +212,9 @@ Contact: shivsutrastudio@gmail.com
 
 document.addEventListener("DOMContentLoaded",function(){
 
+if(typeof displayProperties==="function"){
 displayProperties(properties)
+}
 
 if(typeof initMap==="function"){
 setTimeout(initMap,200)
