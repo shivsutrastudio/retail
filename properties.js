@@ -1,21 +1,10 @@
-const rooms=[
-"living room",
-"kitchen",
-"bedroom",
-"bathroom",
-"balcony",
-"lawn",
-"parking"
-]
-
-function randomImage(){
-return "https://source.unsplash.com/800x600/?modern,house,interior&"+Math.random()
+function img(q){
+return "https://source.unsplash.com/800x600/?"+q+"&sig="+Math.random()
 }
 
 const cities=[
-"Delhi","Mumbai","Bangalore","Pune","Noida","Gurgaon","Chandigarh",
-"Jaipur","Ahmedabad","Shimla","Manali","Hyderabad","Chennai",
-"Kolkata","Goa"
+"Delhi","Mumbai","Bangalore","Pune","Noida","Gurgaon",
+"Chandigarh","Jaipur","Ahmedabad","Shimla"
 ]
 
 const types=["1 RK","1 BHK","2 BHK","3 BHK","4 BHK"]
@@ -40,13 +29,15 @@ purpose:purposes[i%purposes.length],
 price:5000000+(i*250000),
 
 images:[
-randomImage(),
-randomImage(),
-randomImage(),
-randomImage(),
-randomImage(),
-randomImage(),
-randomImage()
+
+img("living-room interior"),
+img("modern kitchen interior"),
+img("bedroom interior"),
+img("bathroom interior"),
+img("balcony apartment"),
+img("house lawn garden"),
+img("house parking garage")
+
 ]
 
 })

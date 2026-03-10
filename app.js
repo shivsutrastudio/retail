@@ -45,7 +45,6 @@ function openProperty(id){
 const p=properties.find(x=>x.id===id)
 
 sliderImages=p.images
-
 currentIndex=0
 
 document.getElementById("modalTitle").innerText=p.title
@@ -62,7 +61,6 @@ document.getElementById("propertyModal").style.display="flex"
 function nextImage(){
 
 currentIndex=(currentIndex+1)%sliderImages.length
-
 document.getElementById("modalImage").src=sliderImages[currentIndex]
 
 }
@@ -70,7 +68,6 @@ document.getElementById("modalImage").src=sliderImages[currentIndex]
 function prevImage(){
 
 currentIndex=(currentIndex-1+sliderImages.length)%sliderImages.length
-
 document.getElementById("modalImage").src=sliderImages[currentIndex]
 
 }
