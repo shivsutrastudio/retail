@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ShivSutra | Buy Rent Sell Property in India</title>
+
+<meta name="description"
+content="ShivSutra helps you buy, rent and sell homes across India. Discover apartments, villas, plots and commercial spaces.">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+</head>
+
+<body class="bg-gray-100">
+
+<!-- NAVBAR -->
+
+<nav class="bg-white shadow p-4 flex justify-between items-center">
+
+<a href="index.html" class="flex items-center gap-3">
+
+<img src="logo.png" class="h-10">
+
+<h1 class="text-xl font-bold">
+ShivSutra
+</h1>
+
+</a>
+
+<div class="flex gap-6">
+
+<button onclick="window.location.href='auth.html'">Sign In</button>
+<button onclick="openDashboard()">Dashboard</button>
+<button onclick="openAdmin()">Admin</button>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section
+class="bg-cover bg-center h-[520px] flex flex-col justify-center items-center text-white text-center"
+style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa')">
+
+<h1 class="text-5xl font-bold mb-4">
+Buy • Rent • Sell • Invest
+</h1>
+
+<p class="mb-6 italic">
+Every home has a story — let ShivSutra help you find yours.
+</p>
+
+<div class="bg-white rounded shadow p-4 flex gap-2 w-[90%] max-w-5xl">
+
+<select id="city" class="p-3 border rounded flex-1">
+
+<option value="">City</option>
+<option>Delhi</option>
+<option>Mumbai</option>
+<option>Bangalore</option>
+<option>Pune</option>
+<option>Noida</option>
+<option>Gurgaon</option>
+<option>Chandigarh</option>
+<option>Jaipur</option>
+<option>Ahmedabad</option>
+<option>Shimla</option>
+
+</select>
+
+<select id="ptype" class="p-3 border rounded">
+
+<option value="">Property Type</option>
+<option>1 RK</option>
+<option>1 BHK</option>
+<option>2 BHK</option>
+<option>3 BHK</option>
+<option>4 BHK</option>
+
+</select>
+
+<select id="purpose" class="p-3 border rounded">
+
+<option value="">Listing</option>
+<option>Rent</option>
+<option>Buy</option>
+<option>Sale</option>
+
+</select>
+
+<input
+id="price"
+placeholder="Max Price"
+class="p-3 border rounded w-40">
+
+<button
+onclick="filterProperties()"
+class="bg-yellow-500 px-6 rounded text-black">
+
+Search
+
+</button>
+
+</div>
+
+</section>
+
+<!-- FEATURED PROPERTIES -->
+
+<section class="p-10">
+
+<h2 class="text-3xl font-bold text-center mb-6">
+Featured Properties
+</h2>
+
+<div
+id="propertyGrid"
+class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+</div>
+
+</section>
+
+<!-- MAP -->
+
+<section class="p-10 bg-white">
+
+<h2 class="text-3xl font-bold text-center mb-6">
+Property Locations
+</h2>
+
+<div id="map" style="height:500px;border-radius:10px"></div>
+
+</section>
+
+<!-- PROPERTY MODAL -->
+
+<div id="propertyModal" class="modal">
+
+<div class="modal-content">
+
+<h2 id="modalTitle"></h2>
+
+<img id="modalImage"
+class="w-full h-60 object-cover">
+
+<div class="flex justify-between mt-2">
+
+<button onclick="prevImage()">◀</button>
+<button onclick="nextImage()">▶</button>
+
+</div>
+
+<p id="modalLocation"></p>
+<p id="modalPrice"></p>
+<p id="modalInfo"></p>
+
+<div class="flex gap-3 mt-3">
+
+<a id="whatsappBtn"
+target="_blank"
+class="bg-green-500 text-white px-4 py-2 rounded">
+
+WhatsApp Enquiry
+
+</a>
+
+<a href="mailto:shivsutrastudio@gmail.com"
+class="bg-blue-600 text-white px-4 py-2 rounded">
+
+Email Enquiry
+
+</a>
+
+</div>
+
+<button onclick="saveProperty(currentProperty)"
+class="bg-yellow-500 px-4 py-2 rounded mt-3">
+
+Save Property
+
+</button>
+
+<button onclick="closeModal()"
+class="bg-gray-700 text-white px-4 py-2 mt-3 rounded">
+
+Close
+
+</button>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer class="bg-[#0b1a35] text-white text-center p-8">
+
+<img src="logo.png" class="h-10 mx-auto mb-3">
+
+<p>© 2026 ShivSutra Studio</p>
+
+<p class="text-sm mt-2">
+Contact: shivsutrastudio@gmail.com
+</p>
+
+</footer>
+
+<!-- JS -->
+
+<script src="properties.js"></script>
+<script src="app.js"></script>
+<script src="ai.js"></script>
+<script src="maps.js"></script>
+<script src="admin.js"></script>
+
+<script type="module" src="firebase.js"></script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded",function(){
+
+displayProperties(properties)
+
+if(typeof initMap==="function"){
+setTimeout(initMap,200)
+}
+
+})
+
+</script>
+
+</body>
+</html>

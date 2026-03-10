@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Sign In | ShivSutra</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="flex h-screen">
+
+<!-- LEFT PANEL -->
+
+<div class="w-1/2 p-10 flex flex-col justify-center">
+
+<h2 class="text-3xl font-bold mb-6">
+
+Sign In
+
+</h2>
+
+<input
+id="loginEmail"
+placeholder="Email Address"
+class="border p-3 mb-3 rounded">
+
+<input
+id="loginPass"
+type="password"
+placeholder="Password"
+class="border p-3 mb-4 rounded">
+
+<button
+onclick="loginUser()"
+class="bg-indigo-600 text-white p-3 rounded">
+
+Continue
+
+</button>
+
+<p class="mt-4">
+
+New here?
+
+<a href="#" onclick="signupUser()">
+
+Create account
+
+</a>
+
+</p>
+
+</div>
+
+<!-- RIGHT IMAGE -->
+
+<div
+class="w-1/2 bg-cover"
+style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa')">
+
+</div>
+
+<script type="module" src="firebase.js"></script>
+
+</body>
+</html>
